@@ -14,12 +14,11 @@ class CreatePayTable extends Migration
 	    Schema::create('user_addresses', function (Blueprint $table) {
 	        $table->increments('id');
 	        $table->string('realname',50)->comment = '姓名'; //省
-	        $table->string('phone',50)->comment = '电话'; //省
+	        $table->string('phone',50)->nullable()->index()->comment = '电话'; //省
 	        $table->unsignedInteger('province')->comment = '省'; //省
 	        $table->unsignedInteger('city')->comment = '市'; //市
 	        $table->unsignedInteger('area')->comment = '区县'; //区县
 	        $table->string('address', 250)->comment = '地址';
-	        $table->string('phone', 20)->nullable()->index()->comment = '电话'; //电话
 	        $table->string('postal_code', 50)->nullable()->comment = '邮编';
 	        $table->unsignedInteger('uid')->comment = '用户UID';
 	        $table->timestamp('used_at')->nullable()->comment = '最后使用时间';
@@ -64,7 +63,7 @@ class CreatePayTable extends Migration
 	        $table->decimal('unit_price', 16, 2)->comment = '单价'; //钱
 	        $table->unsignedInteger('count')->default(0)->comment = '数量'; //数量
 	        $table->string('note', 250)->comment = '特殊说明';
-	        $table->string('attrs_tag',250)->nullable->comment="属性说明";
+	        $table->string('attrs_tag',250)->nullable()->comment="属性说明";
 	        $table->timestamps();
 	                    	
 	        $table->foreign('oid')->references('id')->on('orders')

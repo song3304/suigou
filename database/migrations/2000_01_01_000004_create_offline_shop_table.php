@@ -35,28 +35,13 @@ class CreateOfflineShopTable extends Migration
 			$table->integer('uid')->unsigned()->index()->comment = '用户ID';
 			$table->timestamps();
 	    });
-	    //购物车
-	    Schema::create('carts', function (Blueprint $table) {
-	        $table->increments('id')->comment='主键';
-	        $table->integer('uid')->unsigned()->index()->comment = '用户ID';
-	        $table->unsignedInteger('pid')->default(0)->comment='商品id'; 
-	        $table->unsignedInteger('buy_cnt')->comment = '购买数量'; //省
-	        $table->string('attrs', 250)->comment = '产品属性{key:value}';
-	        $table->string('note', 250)->comment = '特殊说明';
-	        $table->softDeletes(); //软删除
-	             
-	        $table->foreign('uid')->references('id')->on('users')
-	           ->onUpdate('cascade')->onDelete('cascade');
-	        $table->foreign('pid')->references('id')->on('products')
-	           ->onUpdate('cascade')->onDelete('cascade');
-	        
-	        $table->timestamps();
-	    });
+	    
 	    //导航表
 	    Schema::create('navigations', function (Blueprint $table) {
 	        $table->increments('id')->comment='主键';
 	        $table->string('name', 100)->comment='栏目名';
 	        $table->integer('sid')->unsigned()->index()->comment = '门店ID';
+	        $table->integer('nid')->unsigned()->index()->comment = '导航ID';
 	        $table->integer('porder')->unsigned()->index()->comment = '排序';
 	        $table->timestamps();
 	        $table->softDeletes(); //软删除
@@ -87,6 +72,23 @@ class CreateOfflineShopTable extends Migration
 	        ->onUpdate('cascade')->onDelete('cascade');
 	        $table->timestamps();
 	    });
+	   //购物车
+	    Schema::create('carts', function (Blueprint $table) {
+	            $table->increments('id')->comment='主键';
+	            $table->integer('uid')->unsigned()->index()->comment = '用户ID';
+	            $table->unsignedInteger('pid')->default(0)->comment='商品id';
+	            $table->unsignedInteger('buy_cnt')->comment = '购买数量'; //省
+	            $table->string('attrs', 250)->comment = '产品属性{key:value}';
+	            $table->string('note', 250)->comment = '特殊说明';
+	            $table->softDeletes(); //软删除
+	        
+	            $table->foreign('uid')->references('id')->on('users')
+	            ->onUpdate('cascade')->onDelete('cascade');
+	            $table->foreign('pid')->references('id')->on('products')
+	            ->onUpdate('cascade')->onDelete('cascade');
+	             
+	            $table->timestamps();
+	        });
 	    //封面图
 	    Schema::create('product_covers', function (Blueprint $table) {
 	        $table->increments('id')->comment='主键';

@@ -26,6 +26,8 @@ $router->group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['au
 	
 	$router->addAdminRoutes([
 		'member' => 'MemberController',
+	    'user_address' => 'UserAddressController',
+	    'area' => 'AreaController',
 	]);
 
 	//admin目录下的其它路由需放置在本条前

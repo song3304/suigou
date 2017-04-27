@@ -19,8 +19,10 @@
 				<li>
 					<a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator"></i><i class="gi gi-user sidebar-nav-icon"></i>会员管理</a>
 					<ul>
-						<li><a href="<{'admin/member'|url}>" name="member/list">会员列表</a></li>
-						<li><a href="<{'admin/member/create'|url}>" name="member/create"><i class="gi gi-plus"></i> 添加会员</a></li>
+						<li><a class="col-md-8" href="<{'admin/member'|url}>" name="member/list">会员列表</a>
+						<a class="col-md-4" href="<{'admin/member/create'|url}>" name="member/create"><i class="glyphicon glyphicon-plus"></i> 添加</a></li>
+						<li><a class="col-md-8" href="<{'admin/user_address'|url}>" name="user_address/list">地址管理</a>
+						<a class="col-md-4" href="<{'admin/user_address/create'|url}>" name="user_address/create"><i class="glyphicon glyphicon-plus"></i> 添加</a></li>
 					</ul>
 				</li>
 				<{pluginclude file="admin/sidebar.inc.tpl"}>

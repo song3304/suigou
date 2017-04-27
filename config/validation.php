@@ -78,4 +78,73 @@ return [
 			],
 		],
 	],
+    'user-address'=>[
+        'store' => [
+            'uid'=>[
+                'name' => '会员',
+                'rules' => 'required|numeric',
+            ],
+            'receiver'=>[
+                'name' => '收货人',
+                'rules' => 'required',
+            ],
+            'phone'=>[
+                'name' => '电话',
+                'rules' => 'required|phone',
+            ],
+            'province'=>[
+                'name' => '省',
+                'rules' => 'required|numeric',
+            ],
+            'city'=>[
+                'name' => '市',
+                'rules' => 'required|numeric',
+            ],
+            'area'=>[
+                'name' => '区',
+                'rules' => 'required|numeric',
+            ],
+            'address'=>[
+                 'name'=>'详细地址',
+                 'rules' => 'required'  
+            ],
+            'postal_code'=>[
+                'name' => '邮费',
+                'rules' => 'required',
+            ],
+        ]
+    ],
+    'banner' => [
+         'store' => [
+            'title' => [
+                'name' => '标题',
+                'rules' => 'required'
+             ],
+             'url' => [
+                'name' => '网址',
+                'rules' => 'url'
+            ],
+            'cover' => [
+                'name' => '封面',
+                'rules' => 'required'
+            ],
+            'nid' => [
+                'name' => '位置',
+                'rules' => 'numeric',
+            ],
+            'sid' => [
+                'name' => '门店',
+                'rules' => 'numeric',
+            ],
+            'porder' => [
+                'name' => '排序',
+                'rules' => 'numeric'
+            ],
+            'status' => [
+                 'name' => '状态',
+                 'rules' => 'required|bool'
+            ]
+         ]
+    ]
+    ,
 ];
