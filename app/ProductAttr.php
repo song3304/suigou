@@ -1,10 +1,8 @@
 <?php
 namespace App;
 
-use Addons\Core\Models\Model;
+use App\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Plugins\Activity\App\ActivityType;
-use Plugins\Activity\App\Activity;
 
 class ProductAttr extends Model{
 	use SoftDeletes;

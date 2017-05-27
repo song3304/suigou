@@ -9,5 +9,7 @@ return [
 		'wechat_depots' => 5,
 		'wechat-users' => 50,
 		'wechat-messages' => 50,
-	], 
+	],
+    'banner_max_cnt' => 3,
+    'navigation_max_cnt'=>5,
 ];

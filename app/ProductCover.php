@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-use Addons\Core\Models\Model;
+use App\Model;
 
 class ProductCover extends Model{
 	public $auto_cache = true;

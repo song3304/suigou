@@ -122,7 +122,7 @@ return [
              ],
              'url' => [
                 'name' => '网址',
-                'rules' => 'url'
+                'rules' => 'url|required_without:pid'
             ],
             'cover' => [
                 'name' => '封面',
@@ -136,6 +136,10 @@ return [
                 'name' => '门店',
                 'rules' => 'numeric',
             ],
+            'pid' => [
+                 'name' => '商品id',
+                 'rules' => 'numeric|required_without:url',
+             ],
             'porder' => [
                 'name' => '排序',
                 'rules' => 'numeric'
@@ -145,6 +149,154 @@ return [
                  'rules' => 'required|bool'
             ]
          ]
-    ]
-    ,
+    ],
+    'shop' => [
+        'store' => [
+            'id' => [
+                'name' => '指定用户',
+                'rules' => 'required|numeric',
+            ],
+            'name' => [
+                'name' => '门店名称',
+                'rules' => 'required'
+            ],
+            'province'=>[
+                'name' => '省',
+                'rules' => 'required|numeric',
+            ],
+            'city'=>[
+                'name' => '市',
+                'rules' => 'required|numeric',
+            ],
+            'area'=>[
+                'name' => '区',
+                'rules' => 'required|numeric',
+            ],
+            'address'=>[
+                 'name'=>'详细地址',
+                 'rules' => 'required'  
+            ],
+            'phone'=>[
+                'name' => '电话',
+                'rules' => 'required|phone',
+            ],
+            'longitude'=>[
+                'name'=>'经度',
+                'rules' => 'required|numeric'
+            ],
+            'latitude'=>[
+                'name' => '纬度',
+                'rules' => 'required|numeric',
+            ],
+            'status' => [
+                'name' => '状态',
+                'rules' => 'required|bool'
+            ]
+        ]
+    ],
+    'navigation' => [
+        'store'=>[
+            'name' => [
+                'name' => '导航栏名',
+                'rules' => 'required'
+            ],
+            'sid' => [
+                'name' => '门店',
+                'rules' => 'numeric',
+            ],
+            'porder' => [
+                'name' => '排序',
+                'rules' => 'numeric'
+            ],
+        ]
+    ],
+    'navigation' => [
+        'store' => [
+            'name' => [
+                'name' => '导航',
+                'rules' => 'required',
+            ],
+            'mid' => [
+                'name' => '美容院ID',
+                'rules' => 'required|numeric',
+            ],
+            'porder' => [
+                'name' => '排序',
+                'rules' => 'numeric'
+            ]
+        ]
+    ],
+    'product' => [
+        'store' => [
+            'title' => [
+                'name' => '名称',
+                'rules' => 'required',
+            ],
+            'keywords' => [
+                'name' => 'SEO关键字',
+                'rules' => [],
+            ],
+            'description' => [
+                'name' => 'SEO描述',
+                'rules' => [],
+            ],
+            'content' => [
+                'name' => '内容',
+                'rules' => 'required',
+            ],
+            'cover_aids' => [
+                'name' => '封面图片',
+                'rules' => 'required|array',
+            ],
+            'express_price' => [
+                'name' => '快递费/件',
+                'rules' => 'required',
+            ],
+            'market_price' => [
+                'name' => '市场价',
+                'rules' => 'required|numeric|not_zero',
+            ],
+            'price' => [
+                'name' => '优惠价',
+                'rules' => 'required|numeric|not_zero',
+            ],
+            'count' => [
+                'name' => '库存',
+                'rules' => 'required|not_zero|numeric',
+            ],
+            'sid' => [
+                'name' => '门店ID',
+                'rules' => 'numeric',
+            ],
+            'nids' => [
+                'name' => '导航',
+                'rules' => 'required|array',
+                'tag_name' => 'nids[]',
+            ]           
+        ],
+    ],
+    'shop-product' => [
+        'store' => [
+            'porder' => [
+                'name' => '排序',
+                'rules' => 'numeric'
+            ]
+        ]
+    ],
+    'product-attr-type' =>[
+        'store'=>[
+            'name'=>[
+                'name' => '属性类名',
+                'rules' => 'required',
+            ],
+        ]
+    ],
+    'product-attr' =>[
+        'store'=>[
+            'name'=>[
+                'name' => '属性',
+                'rules' => 'required',
+            ],
+        ]
+    ],
 ];

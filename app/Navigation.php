@@ -9,13 +9,13 @@ class Navigation extends Model{
 	public $auto_cache = true;
 	protected $guarded = ['id'];
 
-	public function shops()
+	public function shop()
 	{
 		return $this->hasOne('App\\Shop', 'id', 'sid');
 	}
 
-	public function shop_products()
+	public function products()
 	{
-		return $this->hasMany('App\\ShopProduct', 'nid', 'id')->with(['product']);
+		return $this->belongsToMany('App\\Product', 'shop_products', 'nid', 'pid');
 	}
 }

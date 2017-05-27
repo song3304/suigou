@@ -13,7 +13,7 @@ class CreateOfflineShopTable extends Migration
 	{
 	    //门店
 	    Schema::create('shops', function (Blueprint $table) {
-	        $table->unsignedInteger('id')->index;
+	        $table->unsignedInteger('id')->index();
 	        $table->string('name',250)->comment='门店名称';
 	        $table->unsignedInteger('province')->comment = '省'; //省
 	        $table->unsignedInteger('city')->comment = '市'; //市
@@ -42,6 +42,7 @@ class CreateOfflineShopTable extends Migration
 	        $table->string('name', 100)->comment='栏目名';
 	        $table->integer('sid')->unsigned()->index()->comment = '门店ID';
 	        $table->integer('nid')->unsigned()->index()->comment = '导航ID';
+	        $table->integer('pid')->unsigned()->index()->comment = '商品ID';
 	        $table->integer('porder')->unsigned()->index()->comment = '排序';
 	        $table->timestamps();
 	        $table->softDeletes(); //软删除
@@ -51,7 +52,7 @@ class CreateOfflineShopTable extends Migration
 	         $table->increments('id');
 	         $table->integer('sid')->unsigned()->index()->comment = '门店ID';
 	         $table->integer('pid')->unsigned()->index()->comment = '用户ID';
-	         $table->integer('porder')->unsigned()->index()->comment = '排序';
+	         $table->integer('porder')->default(0)->unsigned()->index()->comment = '排序';
 	         $table->timestamps();
 	    });
 	    //商品主表
@@ -66,6 +67,7 @@ class CreateOfflineShopTable extends Migration
 	        $table->decimal('market_price', 16, 2)->comment='市场价格'; //价格
 	        $table->decimal('price', 16, 2)->comment='优惠价格'; //价格
 	        $table->unsignedInteger('count')->default(0)->comment='数量'; //数量
+	        $table->tinyInteger('status')->default(1)->index()->comment = '0.下架 1.正常';
 	        $table->softDeletes(); //软删除
 	        	
 	        $table->foreign('sid')->references('id')->on('users')

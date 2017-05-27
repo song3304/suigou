@@ -21,6 +21,6 @@ class ShopProduct extends Model{
 	
 	public function product()
 	{
-	    return $this->hasOne('App\\Product', 'id', 'pid')->with(['covers','shops','attr_types']);
+	    return $this->hasOne('App\\Product', 'id', 'pid')->with(['covers','shop','attr_types']);
 	}
 }

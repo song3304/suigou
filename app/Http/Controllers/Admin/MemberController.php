@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
@@ -47,10 +47,12 @@ class MemberController extends Controller
 		$builder = $user->newQuery()->with(['roles']);
 		$size = $request->input('size') ?: config('size.export', 1000);
 
-		$data = $this->_getExport($request, $builder, function(&$v){
-			$v['gender'] = !empty($v['gender']) ? $v['gender']['title'] : NULL;
+		$data = $this->_getExport($request, $builder,function(&$datalist){
+		    foreach ($datalist as &$value){
+		      $v['gender'] = !empty($v['gender']) ? $v['gender']['title'] : NULL;
+		    }
 		}, ['users.*']);
-		return $this->export($data);
+		return parent::export($data);
 	}
 
 	public function show(Request $request, $id)

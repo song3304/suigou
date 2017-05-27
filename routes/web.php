@@ -28,8 +28,15 @@ $router->group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['au
 		'member' => 'MemberController',
 	    'user_address' => 'UserAddressController',
 	    'area' => 'AreaController',
+	    'shop' => 'ShopController',
+	    'banner' => 'BannerController',
+	    'navigation' => 'NavigationController',
+	    'product' => 'ProductController',
+	    'shop_product' => 'ShopProductController',
 	]);
 
+	$router->get('banner/toggle/{id}','BannerController@toggle');
+	$router->get('product/toggle/{id}','ProductController@toggle');
 	//admin目录下的其它路由需放置在本条前
 	$router->addUndefinedRoutes();
 });

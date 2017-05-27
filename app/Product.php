@@ -34,4 +34,9 @@ class Product extends Model{
 	{
 	    return $this->hasMany('App\\ProductAttrType', 'pid', 'id')->with(['attrs']);
 	}
+	
+	public function navigations()
+	{
+	    return $this->belongsToMany('App\\Navigation', 'shop_products', 'pid', 'nid');
+	}
 }
