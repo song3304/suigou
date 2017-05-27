@@ -25,7 +25,7 @@
 <td data-from="name">{{data}}</td>
 <td data-from="shop" data-orderable="false">{{data.name}}</td>
 <td data-from="porder">{{data}}</td>
-<td data-from="product_cnt"><a href="<{'admin'|url}>/shop_product/?f[nid][in][]={{full.id}}">{{data}}</a></td>
+<td data-from="product_cnt"><a href="<{'admin'|url}>/product/?q[ofNavigation]={{full.id}}">{{data}}</a></td>
 <{/block}>
 
 <{block "table-td-options-delete-confirm"}>您确定删除这个导航：{{full.name}}吗？此操作会删除对应的导航！<{/block}>
