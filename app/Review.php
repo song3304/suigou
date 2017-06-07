@@ -11,7 +11,7 @@ class Review extends Tree
     
     public function products()
 	{
-		return $this->hasOne('App\\SalonProduct', 'id', 'product_id')->with(['product']);
+		return $this->hasOne('App\\Product', 'id', 'product_id');
 	}
 	
 	public function users()
